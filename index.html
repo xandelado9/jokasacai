@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joka's Açaí — batido na hora</title>
+<meta name="description" content="Açaí grosso, batido na hora, montado do seu jeito. Peça pelo WhatsApp.">
+<meta name="theme-color" content="#150516">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+<a class="pular" href="#cardapio">Pular para o cardápio</a>
+
+<header class="topo">
+  <a class="marca" href="#inicio">
+    <span class="marca__nome">Joka's</span>
+    <span class="marca__tipo">açaí</span>
+  </a>
+  <nav class="topo__nav" aria-label="Seções">
+    <a href="#cardapio">Cardápio</a>
+    <a href="#complementos">Complementos</a>
+    <a href="#visitar">Onde pedir</a>
+  </nav>
+  <button class="botao botao--linha topo__pedir" type="button" data-pedido-geral>Pedir</button>
+</header>
+
+<main id="inicio">
+
+  <section class="hero">
+    <div class="hero__texto">
+      <p class="sobretitulo">batido na hora, todo dia</p>
+      <h1 class="hero__titulo">Grosso,<br>gelado,<br>sem enrolação.</h1>
+      <p class="hero__linha">Polpa batida no momento do pedido e montada do seu jeito. Você escolhe pelo WhatsApp, a gente prepara e você busca — ou recebe em casa.</p>
+      <div class="hero__acoes">
+        <button class="botao botao--cheio" type="button" data-pedido-geral>Peça no WhatsApp</button>
+        <a class="botao botao--texto" href="#cardapio">Ver o cardápio</a>
+      </div>
+    </div>
+
+    <div class="copo" aria-hidden="true">
+      <div class="copo__vidro">
+        <div class="copo__acai">
+          <span class="copo__topping copo__topping--1"></span>
+          <span class="copo__topping copo__topping--2"></span>
+          <span class="copo__topping copo__topping--3"></span>
+        </div>
+      </div>
+      <div class="copo__colher"></div>
+    </div>
+  </section>
+
+  <section class="secao" id="cardapio">
+    <div class="secao__cabeca">
+      <h2 class="secao__titulo">Cardápio</h2>
+      <p class="secao__nota">Todo tamanho vem com até 3 complementos inclusos. Escolha no próprio item — o desenho do copo se remonta com o que você marcar, e a escolha vai junto na mensagem do WhatsApp.</p>
+    </div>
+    <div class="lista" id="lista-cardapio"></div>
+  </section>
+
+  <section class="secao secao--claro" id="complementos">
+    <div class="secao__cabeca">
+      <h2 class="secao__titulo">Complementos</h2>
+      <p class="secao__nota">Inclusos na quantidade que o tamanho permite. Escolha na hora do pedido.</p>
+    </div>
+    <ul class="grade-tags" id="lista-complementos"></ul>
+
+    <h3 class="sub">Adicionais</h3>
+    <p class="secao__nota">Cobrados à parte, para quando bater vontade.</p>
+    <ul class="grade-tags grade-tags--preco" id="lista-adicionais"></ul>
+  </section>
+
+  <section class="secao" id="visitar">
+    <div class="secao__cabeca">
+      <h2 class="secao__titulo">Onde pedir</h2>
+    </div>
+    <div class="info">
+      <div class="info__bloco">
+        <h3 class="info__rotulo">Horário</h3>
+        <dl class="horarios" id="lista-horarios"></dl>
+      </div>
+      <div class="info__bloco">
+        <h3 class="info__rotulo">Endereço</h3>
+        <p id="endereco"></p>
+        <p class="fraco" id="entrega"></p>
+      </div>
+      <div class="info__bloco">
+        <h3 class="info__rotulo">Acompanhe</h3>
+        <p><a class="link" id="link-instagram" href="#" target="_blank" rel="noopener"></a></p>
+        <p class="fraco">Novidades e sabores da semana saem por lá primeiro.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <p class="rodape__marca">Joka's açaí</p>
+  <p class="fraco">Feito com polpa de verdade.</p>
+</footer>
+
+<div class="barra-fixa">
+  <button class="botao botao--cheio botao--largo" type="button" data-pedido-geral>Peça no WhatsApp</button>
+</div>
+
+<script src="js/dados.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
