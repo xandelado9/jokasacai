@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Joka's Açaí — batido na hora</title>
+<meta name="description" content="Açaí grosso, batido na hora, montado do seu jeito. Peça pelo WhatsApp.">
+<meta name="theme-color" content="#150516">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+<a class="pular" href="#cardapio">Pular para o cardápio</a>
+
+<header class="topo">
+  <a class="marca" href="#inicio">
+    <img class="marca__logo" src="imagens/logo-oficial.jpg" alt="Joka's Açaí" width="96" height="96">
+  </a>
+  <a class="botao botao--destaque topo__cardapio" href="#cardapio">Cardápio</a>
+  <nav class="topo__nav" aria-label="Seções">
+    <a href="#cardapio">Cardápio</a>
+    <a href="#clientes">Clientes</a>
+    <a href="#visitar">Onde pedir</a>
+  </nav>
+  <button class="botao botao--cheio topo__pedir" type="button" data-pedido-geral>Pedir</button>
+</header>
+
+<main id="inicio">
+
+  <section class="hero">
+    <div class="hero__texto">
+      <p class="sobretitulo">Preparado com carinho</p>
+      <h1 class="hero__titulo">O verdadeiro<br>combustível natural<br>do seu dia.</h1>
+      
+      <div class="hero__acoes">
+        <button class="botao botao--cheio" type="button" data-pedido-geral>Peça no WhatsApp</button>
+        <a class="botao botao--texto" href="#cardapio">Ver o cardápio</a>
+      </div>
+    </div>
+
+    <div class="roleta-destaque">
+      <img src="imagens/logo-oficial.jpg" alt="Joka's Açaí" width="640" height="640">
+    </div>
+  </section>
+
+  <section class="secao" id="cardapio">
+    <div class="secao__cabeca">
+      <h2 class="secao__titulo">Cardápio</h2>
+    </div>
+    <div class="lista" id="lista-cardapio"></div>
+  </section>
+
+  <section class="secao secao--claro" id="clientes">
+    <div class="secao__cabeca">
+      <h2 class="secao__titulo">Clientes</h2>
+    </div>
+    <div class="clientes__grade">
+      <div class="clientes__print"><span>Print aqui</span></div>
+      <div class="clientes__print"><span>Print aqui</span></div>
+      <div class="clientes__print"><span>Print aqui</span></div>
+      <div class="clientes__print"><span>Print aqui</span></div>
+    </div>
+  </section>
+
+  <section class="secao" id="visitar">
+    <div class="secao__cabeca">
+      <h2 class="secao__titulo">Onde pedir</h2>
+    </div>
+    <div class="info">
+      <div class="info__bloco">
+        <h3 class="info__rotulo">Horário</h3>
+        <dl class="horarios" id="lista-horarios"></dl>
+      </div>
+      <div class="info__bloco">
+        <h3 class="info__rotulo">Acompanhe</h3>
+        <p class="info__insta">
+          <img src="imagens/logo-instagram.png" alt="" width="24" height="24">
+          <a class="link" id="link-instagram" href="#" target="_blank" rel="noopener"></a>
+        </p>
+        <p class="fraco">Novidades e sabores da semana saem por lá primeiro.</p>
+      </div>
+      <div class="info__bloco">
+        <h3 class="info__rotulo">Peça também</h3>
+        <div class="info__apps" id="lista-entregadores"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <p class="rodape__marca">Joka's açaí</p>
+  <p class="fraco">Feito com polpa de verdade.</p>
+</footer>
+
+<div class="barra-fixa">
+  <button class="botao botao--cheio botao--largo" type="button" data-pedido-geral>Peça no WhatsApp</button>
+</div>
+
+<script src="js/dados.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

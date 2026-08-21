@@ -1,0 +1,409 @@
+/* ============================================================
+   Joka's acai - tokens
+   ============================================================ */
+:root{
+  /* base */
+  --noite:#150516;
+  --polpa:#3B0F3F;
+  --polpa-linha:#54195A;
+  --creme:#F6EDE2;
+  --banana:#FFC53D;
+
+  /* derivados */
+  --creme-70:rgba(246,237,226,.70);
+  --creme-45:rgba(246,237,226,.45);
+  --creme-15:rgba(246,237,226,.15);
+
+  /* ingredientes: cor = informacao, nao enfeite */
+  --ing-acai:#4A1550;
+  --ing-granola:#B8834C;
+  --ing-banana:#D9AE45;
+  --ing-leite:#E3D6C2;
+  --ing-pacoca:#C9925E;
+  --ing-morango:#C0414F;
+  --ing-calda:#7A4B2A;
+
+  /* escala de espacamento */
+  --e1:4px; --e2:8px; --e3:12px; --e4:16px;
+  --e5:24px; --e6:32px; --e7:48px; --e8:64px; --e9:96px;
+
+  --largura:1120px;
+  --raio:2px;
+  --transicao:180ms cubic-bezier(.2,.6,.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  background:var(--noite);
+  color:var(--creme);
+  font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:17px;
+  line-height:1.55;
+  overflow-x:hidden;
+}
+
+h1,h2,h3{
+  font-family:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;
+  font-weight:800;
+  letter-spacing:-.03em;
+  line-height:.98;
+  margin:0;
+}
+
+p{margin:0}
+ul,dl{margin:0;padding:0;list-style:none}
+a{color:inherit}
+
+:focus-visible{
+  outline:2px solid var(--banana);
+  outline-offset:3px;
+  border-radius:var(--raio);
+}
+
+.pular{
+  position:absolute; left:-9999px;
+  background:var(--banana); color:var(--noite);
+  padding:var(--e3) var(--e4); font-weight:600; z-index:50;
+}
+.pular:focus{left:var(--e4); top:var(--e4)}
+
+.fraco{color:var(--creme-45); font-size:15px}
+
+.sobretitulo{
+  font-family:"DM Mono",ui-monospace,monospace;
+  font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--banana);
+  margin-bottom:var(--e5);
+}
+
+/* ============================================================
+   Botoes
+   ============================================================ */
+.botao{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height:48px; padding:0 var(--e5);
+  font:inherit; font-weight:600; font-size:16px;
+  border:1px solid transparent; border-radius:var(--raio);
+  background:none; color:var(--creme);
+  cursor:pointer; text-decoration:none;
+  touch-action:manipulation;
+  transition:background var(--transicao), color var(--transicao),
+             border-color var(--transicao), transform var(--transicao);
+}
+.botao--cheio{background:var(--banana); color:#2A1400}
+.botao--cheio:hover{background:#FFD463}
+.botao--cheio:active{transform:translateY(1px)}
+.botao--linha{border-color:var(--creme-15)}
+.botao--linha:hover{border-color:var(--creme-70)}
+.botao--texto{
+  padding:0; min-height:auto; color:var(--creme-70);
+  text-decoration:underline; text-underline-offset:5px;
+}
+.botao--texto:hover{color:var(--creme)}
+.botao--largo{width:100%}
+.botao[disabled]{opacity:.45; cursor:not-allowed}
+
+.link{color:var(--banana); text-decoration:underline; text-underline-offset:4px}
+
+/* ============================================================
+   Topo
+   ============================================================ */
+.topo{
+  display:flex; align-items:center; gap:var(--e5);
+  max-width:var(--largura); margin:0 auto;
+  padding:var(--e5);
+}
+.marca{display:flex; align-items:center; text-decoration:none; flex-shrink:0}
+.marca__logo{
+  width:clamp(68px,17vw,104px); height:clamp(68px,17vw,104px);
+  border-radius:50%; object-fit:cover; display:block;
+}
+.botao--destaque{border-color:var(--banana); color:var(--banana)}
+.botao--destaque:hover{background:var(--banana); color:#2A1400}
+.topo__cardapio{margin-left:auto}
+.topo__nav{display:none; gap:var(--e5); margin-left:auto; font-size:15px}
+.topo__nav a{color:var(--creme-70); text-decoration:none}
+.topo__nav a:hover{color:var(--creme)}
+.topo__pedir{margin-left:var(--e2)}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero{
+  max-width:var(--largura); margin:0 auto;
+  padding:var(--e6) var(--e5) var(--e8);
+  display:grid; gap:var(--e8);
+}
+.hero__titulo{
+  font-size:clamp(46px,13vw,104px);
+  margin-bottom:var(--e5);
+}
+.hero__linha{
+  max-width:46ch; color:var(--creme-70);
+  margin-bottom:var(--e6);
+}
+.hero__acoes{display:flex; align-items:center; gap:var(--e5); flex-wrap:wrap}
+
+/* --- logo em destaque (flutuando) --- */
+.roleta-destaque{
+  width:min(480px,90vw);
+  justify-self:center;
+  filter:
+    drop-shadow(0 10px 12px rgba(0,0,0,.35))
+    drop-shadow(0 28px 40px rgba(0,0,0,.40))
+    drop-shadow(0 60px 70px rgba(0,0,0,.30));
+}
+.roleta-destaque img{
+  display:block; width:100%; height:auto;
+  border-radius:var(--e6);
+}
+
+/* ============================================================
+   Secoes
+   ============================================================ */
+.secao{
+  max-width:var(--largura); margin:0 auto;
+  padding:var(--e8) var(--e5);
+  border-top:1px solid var(--creme-15);
+}
+.secao--claro{background:linear-gradient(180deg,rgba(59,15,63,.55),transparent)}
+.secao__cabeca{margin-bottom:var(--e6)}
+.secao__titulo{font-size:clamp(30px,7vw,50px); margin-bottom:var(--e3)}
+.secao__nota{color:var(--creme-45); font-size:15px; max-width:52ch}
+
+/* --- itens do cardapio --- */
+.lista{display:grid}
+
+.item{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:var(--e5);
+  align-items:center;
+  padding:var(--e5) 0;
+  border-bottom:1px solid var(--creme-15);
+  opacity:0; transform:translateY(14px);
+  transition:opacity 500ms ease, transform 500ms ease;
+}
+.item.visivel{opacity:1; transform:none}
+
+.item__foto{
+  height:146px; width:110px;
+  border-radius:var(--e4);
+  overflow:hidden;
+}
+.item__foto img{
+  display:block; width:100%; height:100%;
+  object-fit:cover;
+  transition:transform 400ms ease;
+}
+.item:hover .item__foto img{transform:scale(1.08)}
+
+.item__nome{
+  font-size:21px; letter-spacing:-.02em;
+  display:flex; align-items:center; gap:var(--e3); flex-wrap:wrap;
+}
+.selo{
+  font-family:"DM Mono",monospace; font-size:10px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--banana);
+  border:1px solid var(--banana); border-radius:99px;
+  padding:2px var(--e2);
+}
+.item__acao{
+  grid-column:2; display:flex; align-items:center; flex-wrap:wrap; gap:var(--e3);
+  margin-top:var(--e4);
+}
+/* acao do item: destaque sem roubar o amarelo cheio da acao principal da pagina */
+.item__pedir{
+  border-color:var(--banana); color:var(--banana);
+  padding:0 var(--e5);
+}
+.item__pedir:hover{background:var(--banana); color:#2A1400}
+.item__legenda{margin-top:var(--e2)}
+.preco{
+  font-family:"DM Mono",ui-monospace,monospace;
+  font-size:19px; font-weight:500; font-variant-numeric:tabular-nums;
+  margin-left:auto;
+}
+
+/* --- painel: escolher complementos --- */
+.escolha{
+  grid-column:1 / -1;
+  margin-top:var(--e4);
+  padding:var(--e5);
+  background:rgba(59,15,63,.45);
+  border:1px solid var(--creme-15);
+  border-radius:var(--raio);
+}
+.escolha__lista{display:flex; flex-wrap:wrap; gap:var(--e2)}
+
+.chip{
+  display:flex; align-items:center; gap:var(--e2);
+  min-height:44px; padding:0 var(--e4);
+  font:inherit; font-size:15px;
+  color:var(--creme); background:none;
+  border:1px solid var(--creme-15); border-radius:99px;
+  cursor:pointer;
+  touch-action:manipulation;
+  transition:background var(--transicao), color var(--transicao),
+             border-color var(--transicao), opacity var(--transicao);
+}
+.chip:hover:not([disabled]){border-color:var(--creme-70)}
+.chip[aria-pressed="true"]{
+  background:var(--creme); color:var(--noite); border-color:var(--creme);
+}
+.chip[disabled]{opacity:.4; cursor:not-allowed}
+
+.item__alternar{
+  font-family:"DM Mono",ui-monospace,monospace;
+  font-size:13px; font-weight:400; letter-spacing:.02em;
+  padding:0 var(--e4); min-height:44px;
+}
+
+.ponto{width:9px; height:9px; border-radius:50%; flex:none}
+
+/* --- clientes: espacos reservados para prints de conversa --- */
+.clientes__grade{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:var(--e5);
+}
+.clientes__print{
+  aspect-ratio:9/18.5;
+  display:flex; align-items:center; justify-content:center;
+  border:2px dashed var(--creme-15); border-radius:22px;
+  background:rgba(246,237,226,.04);
+  color:var(--creme-45); font-size:14px; text-align:center;
+  padding:var(--e4);
+}
+
+/* --- info --- */
+.info{display:grid; gap:var(--e6)}
+.info__rotulo{
+  font-family:"DM Mono",monospace; font-weight:400;
+  font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--banana); margin-bottom:var(--e3);
+}
+.horarios div{
+  display:flex; justify-content:space-between; gap:var(--e4);
+  padding:var(--e1) 0; max-width:320px;
+}
+.horarios dd{
+  margin:0; font-family:"DM Mono",monospace;
+  font-size:15px; color:var(--creme-70);
+}
+.info__insta{
+  display:flex; align-items:center; gap:var(--e2);
+  margin-bottom:var(--e2);
+}
+.info__insta img{display:block; border-radius:6px}
+.info__apps{display:flex; flex-wrap:wrap; gap:var(--e3)}
+
+/* --- rodape --- */
+.rodape{
+  max-width:var(--largura); margin:0 auto;
+  padding:var(--e7) var(--e5) var(--e8);
+  border-top:1px solid var(--creme-15);
+}
+.rodape__marca{
+  font-family:"Bricolage Grotesque",sans-serif; font-weight:800;
+  font-size:clamp(38px,12vw,90px); letter-spacing:-.045em;
+  color:var(--polpa-linha); line-height:.9;
+}
+
+/* --- barra fixa (desativada: CTA unico agora e o "Pedir" do topo) --- */
+.barra-fixa{
+  display:none;
+  position:fixed; left:0; right:0; bottom:0; z-index:40;
+  padding:var(--e3) var(--e4) calc(var(--e3) + env(safe-area-inset-bottom));
+  background:rgba(21,5,22,.92);
+  backdrop-filter:blur(8px);
+  border-top:1px solid var(--creme-15);
+}
+
+/* ============================================================
+   Mobile
+   ============================================================ */
+@media (max-width:759px){
+  /* topo mais compacto para caber logo maior + Cardapio + Pedir */
+  .topo{gap:var(--e3); padding:var(--e4)}
+  .topo__cardapio,
+  .topo__pedir{padding:0 var(--e4); font-size:15px}
+  .topo__pedir{margin-left:var(--e1)}
+
+  /* nome em cima, preco embaixo (ganha espaco horizontal); sem legenda "vem com" */
+  .item__legenda{display:none}
+  .item__nome .preco{flex-basis:100%}
+
+  /* Complementos e Pedir sempre lado a lado, dividindo a linha */
+  .item__acao{flex-wrap:nowrap}
+  .item__alternar,
+  .item__pedir{flex:1 1 0; padding:0 var(--e2); min-width:0}
+
+  /* so o "Pedir" do topo fica como CTA de WhatsApp no celular */
+  .hero__acoes{display:none}
+
+  /* hero compacto: tudo cabe na primeira tela, logo mais pra cima */
+  .hero{padding-top:var(--e4); padding-bottom:var(--e5); gap:var(--e5)}
+  .sobretitulo{margin-bottom:var(--e3)}
+  .hero__titulo{font-size:clamp(32px,10vw,104px); margin-bottom:var(--e4)}
+  .roleta-destaque{width:min(340px,85vw); justify-self:center}
+  .roleta-destaque img{border-radius:50%}
+}
+
+/* ============================================================
+   Desktop
+   ============================================================ */
+@media (min-width:760px){
+  .topo__cardapio{display:none}
+  .topo__nav{display:flex}
+  .hero{
+    grid-template-columns:1.35fr 1fr;
+    align-items:center;
+    padding-top:var(--e8);
+    padding-bottom:var(--e9);
+  }
+  .roleta-destaque{width:min(440px,100%)}
+
+  /* cardapio em quadrados, 2 colunas (teste, so desktop) */
+  .lista{
+    grid-template-columns:repeat(2,1fr);
+    align-items:start;
+    gap:var(--e6);
+  }
+  .item{
+    display:flex; flex-direction:column;
+    aspect-ratio:1;
+    gap:var(--e4);
+    padding:var(--e5);
+    border:1px solid var(--creme-15);
+    border-radius:8px;
+  }
+  .item__foto{
+    width:100%; height:auto; flex:1 1 auto; min-height:0;
+  }
+  .item__info{flex:none}
+  .item__acao{
+    grid-column:auto; margin-top:0;
+    flex-wrap:nowrap; gap:var(--e4);
+  }
+  .item__acao .item__alternar,
+  .item__acao .item__pedir{flex:1 1 0}
+
+  .info{grid-template-columns:repeat(3,1fr)}
+}
+
+/* ============================================================
+   Acessibilidade: movimento reduzido
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:1ms !important;
+    animation-delay:0ms !important;
+    transition-duration:1ms !important;
+  }
+  .item{opacity:1; transform:none}
+}
