@@ -53,16 +53,6 @@
     "Oi! Vim pelo site do " + LOJA.nome + " " + LOJA.sobrenome + ". " +
     "Queria fazer um pedido.";
 
-  /* --- Corte do copo ------------------------------------------- */
-  function pintarCorte(corte, camadas) {
-    corte.textContent = "";
-    camadas.forEach(function (ing) {
-      var camada = el("span", "camada camada--" + ing);
-      if (ing !== "acai") camada.style.height = "13px";
-      corte.appendChild(camada);
-    });
-  }
-
   /* --- Um item do cardapio ------------------------------------- */
   function montarItem(item) {
     var limite = item.limite || LOJA.limiteComplementos;
@@ -70,11 +60,16 @@
 
     var artigo = el("article", "item");
 
-    /* desenho */
-    var corte = el("div", "item__corte");
-    corte.setAttribute("aria-hidden", "true");
-    pintarCorte(corte, item.camadas);
-    artigo.appendChild(corte);
+    /* foto */
+    var foto = el("div", "item__foto");
+    var img = document.createElement("img");
+    img.src = item.imagem;
+    img.alt = item.nome;
+    img.loading = "lazy";
+    img.width = 300;
+    img.height = 400;
+    foto.appendChild(img);
+    artigo.appendChild(foto);
 
     /* texto */
     var info = el("div", "item__info");
@@ -82,9 +77,8 @@
     var nome = el("h3", "item__nome");
     nome.appendChild(document.createTextNode(item.nome));
     if (item.destaque) nome.appendChild(el("span", "selo", item.destaque));
+    nome.appendChild(el("span", "preco", reais(item.preco)));
     info.appendChild(nome);
-
-    info.appendChild(el("p", "item__desc", item.descricao));
 
     var legenda = el("p", "fraco item__legenda");
     info.appendChild(legenda);
@@ -92,7 +86,6 @@
 
     /* acao */
     var acao = el("div", "item__acao");
-    acao.appendChild(el("span", "preco", reais(item.preco)));
 
     var painelId = "complementos-" + item.id;
 
@@ -150,10 +143,6 @@
 
     painel.appendChild(lista);
 
-    var nota = el("p", "escolha__nota");
-    nota.setAttribute("role", "status");
-    painel.appendChild(nota);
-
     artigo.appendChild(painel);
 
     /* --- estado --- */
@@ -169,24 +158,13 @@
       alternar.textContent =
         "Complementos " + escolhidos.length + "/" + limite;
 
-      nota.textContent = cheio
-        ? "Limite de " + limite + " atingido. Desmarque um para trocar."
-        : "Escolha até " + limite + ", já incluídos no preço.";
-
       if (escolhidos.length) {
-        pintarCorte(
-          corte,
-          escolhidos
-            .map(function (c) { return c.ing; })
-            .concat(["acai"])
-        );
         legenda.textContent =
           "No copo: " +
           escolhidos.map(function (c) { return c.nome.toLowerCase(); }).join(", ") + ".";
       } else {
-        pintarCorte(corte, item.camadas);
         legenda.textContent =
-          "Montagem do desenho: " +
+          "Vem com: " +
           item.camadas
             .filter(function (i) { return i !== "acai"; })
             .map(function (i) { return NOMES[i] || i; })
@@ -204,17 +182,6 @@
     return artigo;
   }
 
-  /* --- Tags (secao de complementos) ---------------------------- */
-  function montarTag(obj, comPreco) {
-    var li = el("li");
-    var ponto = el("span", "ponto");
-    ponto.style.background = "var(--ing-" + obj.ing + ")";
-    li.appendChild(ponto);
-    li.appendChild(document.createTextNode(obj.nome));
-    if (comPreco) li.appendChild(el("span", "tag-preco", "+ " + reais(obj.preco)));
-    return li;
-  }
-
   /* --- Info da loja -------------------------------------------- */
   function montarInfo() {
     var dl = document.getElementById("lista-horarios");
@@ -225,16 +192,18 @@
       dl.appendChild(linha);
     });
 
-    document.getElementById("endereco").textContent =
-      LOJA.endereco + " - " + LOJA.cidade;
-
-    document.getElementById("entrega").textContent =
-      "Entrega " + reais(LOJA.entrega.taxa) + " · " + LOJA.entrega.tempo +
-      ". Grátis acima de " + reais(LOJA.entrega.gratisAcima) + ".";
-
     var insta = document.getElementById("link-instagram");
     insta.href = LOJA.instagram;
     insta.textContent = LOJA.instagramHandle;
+
+    var apps = document.getElementById("lista-entregadores");
+    LOJA.entregadores.forEach(function (app) {
+      var link = el("a", "botao botao--linha", app.nome);
+      link.href = app.url;
+      link.target = "_blank";
+      link.rel = "noopener";
+      apps.appendChild(link);
+    });
   }
 
   /* --- Revelar no scroll --------------------------------------- */
@@ -265,12 +234,6 @@
     return no;
   });
   revelar(itens);
-
-  var ulComp = document.getElementById("lista-complementos");
-  COMPLEMENTOS.forEach(function (c) { ulComp.appendChild(montarTag(c, false)); });
-
-  var ulAdd = document.getElementById("lista-adicionais");
-  ADICIONAIS.forEach(function (a) { ulAdd.appendChild(montarTag(a, true)); });
 
   montarInfo();
 

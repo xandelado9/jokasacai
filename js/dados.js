@@ -10,20 +10,19 @@ const LOJA = {
   whatsapp: "5511999999999",
   instagram: "https://www.instagram.com/jokas_acai",
   instagramHandle: "@jokas_acai",
-  endereco: "Rua Exemplo, 123 — Centro",
-  cidade: "Sua Cidade — UF",
   horarios: [
     { dias: "Terça a sexta", horas: "14h às 22h" },
     { dias: "Sábado e domingo", horas: "13h às 23h" },
     { dias: "Segunda", horas: "fechado" }
   ],
-  entrega: {
-    taxa: 5.0,
-    tempo: "30 a 45 min",
-    gratisAcima: 40.0
-  },
   // quantos complementos grátis cada item aceita, quando o item não define o seu
-  limiteComplementos: 3
+  limiteComplementos: 3,
+  // TROCAR: link da loja em cada app de entrega
+  entregadores: [
+    { nome: "99Food", url: "https://99app.com" },
+    { nome: "Keeta", url: "https://www.keeta.com" },
+    { nome: "iFood", url: "https://www.ifood.com.br" }
+  ]
 };
 
 /* camadas: montagem SUGERIDA, desenhada de cima para baixo no corte do copo.
@@ -36,6 +35,7 @@ const CARDAPIO = [
     nome: "Tigela 300ml",
     descricao: "Açaí puro batido na hora.",
     preco: 14.9,
+    imagem: "imagens/copo-t300.jpg",
     camadas: ["granola", "banana", "acai"]
   },
   {
@@ -44,6 +44,7 @@ const CARDAPIO = [
     descricao: "O tamanho que quase todo mundo pede.",
     preco: 19.9,
     destaque: "mais pedido",
+    imagem: "imagens/copo-t500.jpg",
     camadas: ["leite", "granola", "banana", "acai"]
   },
   {
@@ -51,6 +52,7 @@ const CARDAPIO = [
     nome: "Tigela 700ml",
     descricao: "Para quem chega com fome de verdade.",
     preco: 24.9,
+    imagem: "imagens/copo-t700.jpg",
     camadas: ["morango", "leite", "granola", "banana", "acai"]
   },
   {
@@ -58,6 +60,7 @@ const CARDAPIO = [
     nome: "Copo 400ml",
     descricao: "Com tampa, para levar na mão.",
     preco: 17.9,
+    imagem: "imagens/copo-c400.jpg",
     camadas: ["pacoca", "granola", "acai"]
   },
   {
@@ -65,6 +68,7 @@ const CARDAPIO = [
     nome: "Barca 1 litro",
     descricao: "Dá para dividir entre duas ou três pessoas.",
     preco: 39.9,
+    imagem: "imagens/copo-b1000.jpg",
     camadas: ["morango", "calda", "leite", "granola", "banana", "acai"]
   }
 ];

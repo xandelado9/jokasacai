@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Joka's Açaí — batido na hora</title>
 <meta name="description" content="Açaí grosso, batido na hora, montado do seu jeito. Peça pelo WhatsApp.">
 <meta name="theme-color" content="#150516">
@@ -17,60 +17,52 @@
 
 <header class="topo">
   <a class="marca" href="#inicio">
-    <span class="marca__nome">Joka's</span>
-    <span class="marca__tipo">açaí</span>
+    <img class="marca__logo" src="imagens/logo-oficial.jpg" alt="Joka's Açaí" width="96" height="96">
   </a>
+  <a class="botao botao--destaque topo__cardapio" href="#cardapio">Cardápio</a>
   <nav class="topo__nav" aria-label="Seções">
     <a href="#cardapio">Cardápio</a>
-    <a href="#complementos">Complementos</a>
+    <a href="#clientes">Clientes</a>
     <a href="#visitar">Onde pedir</a>
   </nav>
-  <button class="botao botao--linha topo__pedir" type="button" data-pedido-geral>Pedir</button>
+  <button class="botao botao--cheio topo__pedir" type="button" data-pedido-geral>Pedir</button>
 </header>
 
 <main id="inicio">
 
   <section class="hero">
     <div class="hero__texto">
-      <p class="sobretitulo">batido na hora, todo dia</p>
-      <h1 class="hero__titulo">Grosso,<br>gelado,<br>sem enrolação.</h1>
-      <p class="hero__linha">Polpa batida no momento do pedido e montada do seu jeito. Você escolhe pelo WhatsApp, a gente prepara e você busca — ou recebe em casa.</p>
+      <p class="sobretitulo">Preparado com carinho</p>
+      <h1 class="hero__titulo">O verdadeiro<br>combustível natural<br>do seu dia.</h1>
+      
       <div class="hero__acoes">
         <button class="botao botao--cheio" type="button" data-pedido-geral>Peça no WhatsApp</button>
         <a class="botao botao--texto" href="#cardapio">Ver o cardápio</a>
       </div>
     </div>
 
-    <div class="copo" aria-hidden="true">
-      <div class="copo__vidro">
-        <div class="copo__acai">
-          <span class="copo__topping copo__topping--1"></span>
-          <span class="copo__topping copo__topping--2"></span>
-          <span class="copo__topping copo__topping--3"></span>
-        </div>
-      </div>
-      <div class="copo__colher"></div>
+    <div class="roleta-destaque">
+      <img src="imagens/logo-oficial.jpg" alt="Joka's Açaí" width="640" height="640">
     </div>
   </section>
 
   <section class="secao" id="cardapio">
     <div class="secao__cabeca">
       <h2 class="secao__titulo">Cardápio</h2>
-      <p class="secao__nota">Todo tamanho vem com até 3 complementos inclusos. Escolha no próprio item — o desenho do copo se remonta com o que você marcar, e a escolha vai junto na mensagem do WhatsApp.</p>
     </div>
     <div class="lista" id="lista-cardapio"></div>
   </section>
 
-  <section class="secao secao--claro" id="complementos">
+  <section class="secao secao--claro" id="clientes">
     <div class="secao__cabeca">
-      <h2 class="secao__titulo">Complementos</h2>
-      <p class="secao__nota">Inclusos na quantidade que o tamanho permite. Escolha na hora do pedido.</p>
+      <h2 class="secao__titulo">Clientes</h2>
     </div>
-    <ul class="grade-tags" id="lista-complementos"></ul>
-
-    <h3 class="sub">Adicionais</h3>
-    <p class="secao__nota">Cobrados à parte, para quando bater vontade.</p>
-    <ul class="grade-tags grade-tags--preco" id="lista-adicionais"></ul>
+    <div class="clientes__grade">
+      <div class="clientes__print"><span>Print aqui</span></div>
+      <div class="clientes__print"><span>Print aqui</span></div>
+      <div class="clientes__print"><span>Print aqui</span></div>
+      <div class="clientes__print"><span>Print aqui</span></div>
+    </div>
   </section>
 
   <section class="secao" id="visitar">
@@ -83,14 +75,16 @@
         <dl class="horarios" id="lista-horarios"></dl>
       </div>
       <div class="info__bloco">
-        <h3 class="info__rotulo">Endereço</h3>
-        <p id="endereco"></p>
-        <p class="fraco" id="entrega"></p>
+        <h3 class="info__rotulo">Acompanhe</h3>
+        <p class="info__insta">
+          <img src="imagens/logo-instagram.png" alt="" width="24" height="24">
+          <a class="link" id="link-instagram" href="#" target="_blank" rel="noopener"></a>
+        </p>
+        <p class="fraco">Novidades e sabores da semana saem por lá primeiro.</p>
       </div>
       <div class="info__bloco">
-        <h3 class="info__rotulo">Acompanhe</h3>
-        <p><a class="link" id="link-instagram" href="#" target="_blank" rel="noopener"></a></p>
-        <p class="fraco">Novidades e sabores da semana saem por lá primeiro.</p>
+        <h3 class="info__rotulo">Peça também</h3>
+        <div class="info__apps" id="lista-entregadores"></div>
       </div>
     </div>
   </section>
